@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "motion/react";
 import { MapPin, Phone } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { StitchUnderline } from "./StitchUnderline";
+import { CountUp } from "./CountUp";
 
 export function Logistics() {
   return (
@@ -10,6 +12,9 @@ export function Logistics() {
         <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between border-b border-brand-charcoal pb-12 gap-8">
           <div>
             <h2 className="text-6xl md:text-8xl font-bold tracking-tighter mb-4">The Final Mile.</h2>
+            <div className="max-w-[180px] mb-6">
+              <StitchUnderline color="peach" />
+            </div>
             <p className="text-neutral-500 max-w-xl text-xl font-light">
               25 years of industry experience built on full transparency. 
               No blockers. Just unparalleled manufacturing delivered on schedule.
@@ -17,7 +22,9 @@ export function Logistics() {
           </div>
           <div className="text-right">
             <div className="text-sm font-bold uppercase tracking-widest text-brand-periwinkle mb-2">Delivery Rate</div>
-            <div className="text-6xl md:text-8xl font-black tracking-tighter text-brand-charcoal">99.8%</div>
+            <div className="text-6xl md:text-8xl font-black tracking-tighter text-brand-charcoal">
+              <CountUp to={99.8} decimals={1} suffix="%" />
+            </div>
           </div>
         </div>
 

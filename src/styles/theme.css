@@ -15,3 +15,18 @@ body {
   color: var(--color-brand-charcoal);
   overflow-x: hidden;
 }
+
+/* Woven selvedge edge — short alternating peach/periwinkle bars
+   evoking the woven edge of a textile bolt. */
+.selvedge-edge {
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      var(--color-brand-peach) 0 14px,
+      transparent 14px 22px,
+      var(--color-brand-periwinkle) 22px 36px,
+      transparent 36px 44px
+    );
+  background-size: 44px 100%;
+  background-repeat: repeat-x;
+}
