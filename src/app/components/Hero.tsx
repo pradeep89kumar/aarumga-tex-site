@@ -70,7 +70,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 1.5 }}
           className="max-w-md text-lg text-neutral-600 font-light mb-10"
         >
-          25 years of unbroken threads. Precision B2B auto loom manufacturing delivering 99.8% on-time logistics for the most demanding supply chains.
+          25 years of deep technical mastery in auto loom manufacturing. Precision B2B production delivering 99.8% on-time logistics for the most demanding supply chains.
         </motion.div>
         
         <motion.div
