@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { StitchUnderline } from "./StitchUnderline";
+import { Odometer } from "./Odometer";
 
 const WEAVES = [
   {
@@ -48,8 +49,9 @@ export function WeaveLibrary() {
       {/* Left side: Sticky Content */}
       <div className="w-1/2 sticky top-0 h-screen flex flex-col justify-center px-16 lg:px-32 border-r border-neutral-200 z-10 bg-brand-alabaster/80 backdrop-blur-md">
         <div className="mb-12">
-          <div className="text-brand-periwinkle uppercase tracking-widest text-sm font-bold mb-3">
-            01 / The Archive
+          <div className="text-brand-periwinkle uppercase tracking-widest text-sm font-bold mb-3 flex items-center gap-2">
+            <Odometer scrollYProgress={scrollYProgress} total={WEAVES.length} />
+            <span>/ The Archive</span>
           </div>
           <div className="max-w-[120px]">
             <StitchUnderline color="periwinkle" />

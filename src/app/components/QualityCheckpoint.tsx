@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ScanReveal } from "./ScanReveal";
 
 export function QualityCheckpoint() {
   const ref = useRef(null);
@@ -40,7 +41,7 @@ export function QualityCheckpoint() {
             className="group relative cursor-default"
           >
             <h2 className="text-6xl md:text-[9vw] leading-none font-bold text-center text-brand-charcoal tracking-tighter transition-colors duration-500 hover:text-brand-periwinkle">
-              {text}
+              <ScanReveal text={text} delay={index * 0.35} duration={1.1} />
             </h2>
           </motion.div>
         ))}
