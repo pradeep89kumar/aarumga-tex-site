@@ -1,23 +1,44 @@
 import React from "react";
 import { motion } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ThreadingHeadline } from "./ThreadingHeadline";
 import logoUrl from "../../imports/logo.jpg";
 
 export function Hero() {
   return (
     <section className="relative h-screen w-full bg-brand-alabaster overflow-hidden flex flex-col items-center justify-center">
       
-      {/* Abstract kinetic shapes from brand colors */}
+      {/* Abstract kinetic shapes from brand colors — slow ambient drift + breathing */}
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.15 }}
-        transition={{ duration: 2, ease: "easeOut" }}
+        animate={{
+          scale: [1, 1.12, 0.95, 1.05, 1],
+          opacity: [0.12, 0.18, 0.14, 0.17, 0.12],
+          x: [0, 40, -30, 20, 0],
+          y: [0, -30, 25, -15, 0],
+        }}
+        transition={{
+          scale: { duration: 18, ease: "easeInOut", repeat: Infinity },
+          opacity: { duration: 18, ease: "easeInOut", repeat: Infinity },
+          x: { duration: 24, ease: "easeInOut", repeat: Infinity },
+          y: { duration: 22, ease: "easeInOut", repeat: Infinity },
+        }}
         className="absolute top-[20%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-brand-peach mix-blend-multiply blur-3xl pointer-events-none"
       />
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.15 }}
-        transition={{ duration: 2.5, ease: "easeOut", delay: 0.2 }}
+        animate={{
+          scale: [1, 0.92, 1.1, 0.97, 1],
+          opacity: [0.13, 0.18, 0.12, 0.16, 0.13],
+          x: [0, -50, 35, -20, 0],
+          y: [0, 25, -35, 15, 0],
+        }}
+        transition={{
+          scale: { duration: 20, ease: "easeInOut", repeat: Infinity, delay: 0.4 },
+          opacity: { duration: 20, ease: "easeInOut", repeat: Infinity, delay: 0.4 },
+          x: { duration: 26, ease: "easeInOut", repeat: Infinity, delay: 0.4 },
+          y: { duration: 24, ease: "easeInOut", repeat: Infinity, delay: 0.4 },
+        }}
         className="absolute bottom-[10%] right-[10%] w-[50vw] h-[50vw] rounded-full bg-brand-periwinkle mix-blend-multiply blur-3xl pointer-events-none"
       />
 
@@ -44,25 +65,15 @@ export function Hero() {
       </motion.div>
 
       <div className="z-20 w-full px-6 md:px-12 relative text-left self-start mt-40 md:mt-0 md:pl-24">
-        <div className="overflow-hidden mb-2">
-          <motion.h1
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl md:text-[8vw] leading-none font-bold tracking-tighter text-brand-charcoal"
-          >
-            Zero Defects.
-          </motion.h1>
+        <div className="overflow-hidden mb-2 leading-none">
+          <h1 className="text-6xl md:text-[8vw] leading-none font-bold tracking-tighter text-brand-charcoal">
+            <ThreadingHeadline text="Zero Defects." delay={0.8} />
+          </h1>
         </div>
-        <div className="overflow-hidden mb-8">
-          <motion.h2
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1.2, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-[6vw] leading-none font-medium tracking-tight text-neutral-400"
-          >
-            From First Cut to Final Roll.
-          </motion.h2>
+        <div className="overflow-hidden mb-8 leading-none">
+          <h2 className="text-4xl md:text-[6vw] leading-none font-medium tracking-tight text-neutral-400">
+            <ThreadingHeadline text="From First Cut to Final Roll." delay={1.2} stagger={0.025} />
+          </h2>
         </div>
         <motion.div
           initial={{ opacity: 0 }}
